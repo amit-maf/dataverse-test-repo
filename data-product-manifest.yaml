@@ -13,7 +13,7 @@ manifest:
       userid: string
       url: https://sandbox.dataverse.xsight.me
     owner:
-      name: string
+      name: Amit
       email: user@example.com
       userid: string
       url: https://sandbox.dataverse.xsight.me
