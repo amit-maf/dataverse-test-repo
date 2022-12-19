@@ -3,12 +3,12 @@
 # Data product manifest version. Prefer to have semantic version
 manifest:
   discoveryPort:
-    name: "Demo - Test manifest errors"
-    description: This is demo data product for webhooks testing
+    name: "Demo data product 2"
+    description: This is demo data product for webhooks testing 19/12
     category: "string"
     image: https://sandbox.dataverse.xsight.me
     createdBy:
-      name: Amit
+      name: string
       email: user@example.com
       userid: string
       url: https://sandbox.dataverse.xsight.me
