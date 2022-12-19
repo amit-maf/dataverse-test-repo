@@ -4,7 +4,7 @@
 version: '0.0.1'
 
 discoveryPort:
-  name: 'Demo product test Webhooks 1'
+  name: 'Demo product test Webhooks 2'
   description: 'A daliy updated product about CRF customer data. It consist of more than 20M records integrated from 5 different sources - test webhooks'
   category: string
   autofillUserinfo: true
