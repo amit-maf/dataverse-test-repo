@@ -8,12 +8,12 @@ manifest:
     category: "string"
     image: https://sandbox.dataverse.xsight.me
     createdBy:
-      name: []
+      name: Amit
       email: user@example.com
       userid: string
       url: https://sandbox.dataverse.xsight.me
     owner:
-      name: Amit
+      name: string
       email: user@example.com
       userid: string
       url: https://sandbox.dataverse.xsight.me
