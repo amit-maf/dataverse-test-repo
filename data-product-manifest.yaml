@@ -1,8 +1,8 @@
 # --- Data product definition template and documentation   --- #
 version: 0.0.1
 discoveryPort:
-  name: CFR customer data 3
-  description: A daily updated product about CRF customer data. It consist of more
+  name: CFR customer data LATEST
+  description: A daliy updated product about CRF customer data. It consist of more
     than 20M records integrated from 5 different sources
   category: customer
   image: http://www.google.com
@@ -16,7 +16,7 @@ inputPorts:
   extra: {}
   syncType: pull
   type: s3
-  sourceUrn: urn:dv:datasource:aee31570-a5d8-4475-b7db-7e68d9f8ce8d
+  sourceUrn: urn:dv:datasource:36b5641a-720a-46d2-ac34-264af0e7eb25
   entityId:
     alias: customers
     entityName: customer transactions
@@ -95,7 +95,7 @@ stateManagement:
     - cust_last_name
     - country_key
   productStoreState:
-    logicalSchemaUrn: "${urn:dv:schema:9d4716c3}"
+    logicalSchemaUrn: "${urn:dv:schema:263deedb-916b-40f2-9740-6ee02ce9b8b9}"
     retentionVersions: '10'
 transformation:
   sql: select 'CRF' as source, customer_id, date_format(cust_birthday, 'yyyy-MM-dd')
@@ -121,62 +121,4 @@ outputPort:
   slo: {}
   tags: []
   extra: {}
-
-productResolutionInfo:
-  inputPorts:
-    sourceDetails:
-    - alias: mafh-analytics-data-ingestion
-      sourceUrn: urn:dv:datasource:crf-customers-6d4714c3
-      connectionProperties:
-        s3:
-          accessKeyId: "${env_datasource_crf-customers-6d4714c3_accessKeyId}"
-          secretAccessKey: "${env_datasource_crf-customers-6d4714c3_secretAccessKey}"
-          region: eu-west-1
-  stateManagement:
-    sourceDetails:
-    - alias: mafh-analytics-data-state
-      sourceUrn: urn:dv:datasource:crf-customers-6d4714c3
-      connectionProperties:
-        s3:
-          accessKeyId: "${env_state_crf-customers-6d4714c3_accessKeyId}"
-          secretAccessKey: "${env_state_crf-customers-6d4714c3_secretAccessKey}"
-          region: eu-west-1
-    logicalSchema:
-      logicalSchemaUrn: "${urn:dv:schema:9d4716c3}"
-      schemaDefinition:
-        properties:
-          customerAccountId:
-            type: string
-            description: ''
-            properties: {}
-            maxLength: 0
-          customer_id:
-            type: string
-            description: ''
-            properties: {}
-            maxLength: 60
-          title:
-            type: string
-            description: ''
-            properties: {}
-            maxLength: 40
-          dateOfBirth:
-            type: string
-            description: ''
-            properties: {}
-          nationality:
-            type: string
-            description: ''
-            properties: {}
-          phone:
-            type: string
-            description: ''
-            properties: {}
-        required:
-        - product_name
-        - product_key
-  transformation:
-    language: sql
-    env: spark
-    dependencyLibs: []
 # --- end -- #
