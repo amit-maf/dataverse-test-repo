@@ -1,13 +1,13 @@
 # --- Data product definition template and documentation   --- #
 version: 0.0.1
 discoveryPort:
-  name: CFR customer data 2/1/2023
+  name: CFR customer data 3/1/2023
   description: A daliy updated product about CRF customer data. It consist of more
     than 20M records integrated from 5 different sources
   category: customer
   image: http://www.google.com
   autofillUserinfo: true
-  tags: [Fintech, Finance]
+  tags: [Fintech, Finance, Test12]
   extra: {}
 inputPorts:
 - alias: mafh-analytics-data-ingestion
