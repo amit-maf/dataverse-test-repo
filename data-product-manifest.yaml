@@ -1,6 +1,4 @@
 {
-  "productId": "cfa8818e-77b8-4fc6-a187-15745658bfd5",
-  "manifest": {
     "version": "0.0.1",
     "discoveryPort": {
       "name": "CFR customer data 10-01-22",
@@ -139,4 +137,3 @@
       "dependencyLibs": []
     }
   }
-}
