@@ -8,7 +8,7 @@ discoveryPort:
   category: customer
   image: http://google.com
   autofillUserinfo: true
-  tags: []
+  tags: [Bank Transactions, Customer Transactions]
   extra: {}
 inputPorts:
   - alias: usersS3_input_port
