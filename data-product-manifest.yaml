@@ -2,10 +2,11 @@
 version: 0.0.1
 discoveryPort:
   name: Average Transaction Size by Age Group and Gender (Indian Bank Data)
-  description: Average Transaction size by customers from different age groups (20-30, 30-40, 40-50, 50+) and Gender.
-  The output is calculated based on 1 million plus transaction data from an Indian Bank.
+  description: Average Transaction size by customers from different age groups
+    (20-30, 30-40, 40-50, 50+) and Gender. The output is calculated based on 1
+    million plus transaction data from an Indian Bank.
   category: customer
-  image: "http://google.com"
+  image: http://google.com
   autofillUserinfo: true
   tags: []
   extra: {}
