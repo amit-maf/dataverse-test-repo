@@ -1,0 +1,64 @@
+---
+version: 0.0.1
+discoveryPort:
+  name: Average Transaction Size by Age Group and Gender (Indian Bank Data)
+  description: Average Transaction size by customers from different age groups (20-30, 30-40, 40-50, 50+) and Gender.
+  The output is calculated based on 1 million plus transaction data from an Indian Bank.
+  category: customer
+  image: "http://google.com"
+  autofillUserinfo: true
+  tags: []
+  extra: {}
+inputPorts:
+  - alias: usersS3_input_port
+    description: string
+    tags: []
+    extra: {}
+    syncType: pull
+    type: s3
+    sourceUrn: urn:dv:datasource:713e6921-ac91-4289-93d0-fa599488f150
+    entityId:
+      alias: usersS3
+      createEntity: true
+      entityName: bank_transactions.parquet
+      type: s3-bucket
+      entityPath: s3a://dp-input-bucket/test/bank_transactions.parquet
+      entityFilterPatternMatch: "*"
+      sourceSchemaUrn: urn:dv:schema:9d4716d4
+      projectSchemaUrn: urn:dv:schema:9d4716d6
+      fileFormat: parquet
+      delimiter: "|"
+      filter: gender != ''
+      processingTimeColumn:
+        - processing_time
+      actualTimeColumn:
+        - processing_time
+      projection:
+        - TransactionID
+        - CustomerID
+        - CustomerDOB
+        - CustGender
+        - CustLocation
+        - CustAccountBalance
+        - TransactionDate
+        - TransactionTime
+        - TransactionAmount (INR)
+stateManagement:
+  alias: users_count_by_gender
+  refreshInterval: 00 10 * * *
+  logicalSchemaUrn: ${urn:dv:schema:263deedb-916b-40f2-9740-6ee02ce9b8b9}
+  retentionVersions: "10"
+  updateStrategy: SCD-2
+  productStoreState:
+    logicalSchemaUrn: ${urn:dv:schema:263deedb-916b-40f2-9740-6ee02ce9b8b9}
+    retentionVersions: "10"
+  updateStrategyOptions:
+    - entityRef: ${urn:dv:datasource:6d4714c3}:1
+      uniqueKeyColumns:
+        - customer_id
+      changeTrackColumns:
+        - cust_title_desc
+        - cust_birthday
+        - cust_nationality
+transformation:
+  sql: select * from usersS3 group by CustGender
